@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block head_title %}Menu Notes | {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+
+<h1>Menu Notes</h1>
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+    </style>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Content</th>
+        <th>chi haja</th>
+    </tr>
+{% for obj in object_list %}
+    <tr>
+        <th>{{obj.contents}}</th>
+        <th>{{obj.excludes}}</th>
+        <th>{{obj.name}}</th>
+    </tr>
+{% endfor %}
+</table>
+</ul>
+{% endblock %}
