@@ -1,14 +1,27 @@
 from django.shortcuts import render
-from django.views.generic import View, ListView
+from django.views.generic import View, ListView, DetailView, CreateView, UpdateView
 
 from .models import Note
+from .forms import NoteForm
 
 
 class HomeView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, "base.html")
+    model = Note
 
 
 class NoteListView(ListView):
-    def get_queryset(self):
-        return Note.objects.all()
+    model = Note
+
+
+class NoteDetailView(DetailView):
+    model = Note
+
+
+class NoteCreateView(CreateView):
+    form_class = NoteForm
+    model = Note
+
+
+class NoteUpdateView(UpdateView):
+    form_class = NoteForm
+    model = Note
