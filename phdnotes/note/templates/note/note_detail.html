@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block head_title %}Note {{ object.id }} | {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+<center>
+    <h1>
+        Note {{ object.id }} <a href='{% url "notes:list" %}' class="btn btn-default">Return to list</a>
+    </h1>
+</center>
+
+<table>
+        <tr>
+            <th>ID</th>
+            <th>Created at</th>
+            <th>Content</th>
+            <th>Tags</th>
+        </tr>
+        <tr>
+            <th>{{note.id}}</th>
+            <th>{{note.created_at}}</th>
+            <th>{{note.content}}</th>
+            <th>{{note.tags}}</th>
+        </tr>
+</table>
+
+{% endblock %}

@@ -4,39 +4,27 @@
 
 {% block content %}
 
-<h1>Menu Notes</h1>
-
-<style>
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-    }
-    
-    td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-    
-    tr:nth-child(even) {
-        background-color: #dddddd;
-    }
-    </style>
+<center>
+    <h1>
+        Notes <a href='{% url "notes:create" %}' class="btn btn-default">Add a note</a>
+    </h1>
+</center>
 
 <table>
     <tr>
-        <th>Name</th>
+        <th>ID</th>
+        <th>Created at</th>
         <th>Content</th>
-        <th>chi haja</th>
+        <th>Tags</th>
     </tr>
 {% for obj in object_list %}
     <tr>
-        <th>{{obj.contents}}</th>
-        <th>{{obj.excludes}}</th>
-        <th>{{obj.name}}</th>
+        <th><a href='{% url "notes:edit" pk=obj.id %}' class="btn btn-default">{{obj.id}}</a></th>
+        <th>{{obj.created_at}}</th>
+        <th>{{obj.content}}</th>
+        <th>{{obj.tags}}</th>
     </tr>
 {% endfor %}
 </table>
-</ul>
+
 {% endblock %}
