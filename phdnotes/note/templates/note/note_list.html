@@ -12,17 +12,17 @@
 
 <table>
     <tr>
-        <th>ID</th>
-        <th>Created at</th>
-        <th>Content</th>
-        <th>Tags</th>
+        <th width="3%">ID</th>
+        <th width="10%">Created at</th>
+        <th width="77%">Content</th>
+        <th width="10%">Tags</th>
     </tr>
 {% for obj in object_list %}
     <tr>
-        <th><a href='{% url "notes:edit" pk=obj.id %}' class="btn btn-default">{{obj.id}}</a></th>
-        <th>{{obj.created_at}}</th>
-        <th>{{obj.content}}</th>
-        <th>{{obj.tags}}</th>
+        <td><a href='{% url "notes:edit" pk=obj.id %}' class="btn btn-default">{{obj.id}}</a></td>
+        <td>{{obj.created_at}}</td>
+        <td>{{obj.content}}</td>
+        <td>{{obj.tags}}</td>
     </tr>
 {% endfor %}
 </table>
