@@ -18,5 +18,4 @@ export POSTGRES_HOST=localhost;
 export POSTGRES_DB=pagejobs;
 
 # Run python manage commands
-python phdnotes/manage.py migrate
 python phdnotes/manage.py runserver
