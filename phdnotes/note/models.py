@@ -6,7 +6,7 @@ from django.contrib.postgres.fields import ArrayField
 class Note(models.Model):
 
     content = models.TextField()
-    tags = ArrayField(models.CharField(max_length=255), null=True, blank=True)
+    tags = ArrayField(models.CharField(max_length=32), null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
