@@ -5,10 +5,6 @@ from .models import Note
 from .forms import NoteForm
 
 
-class HomeView(View):
-    model = Note
-
-
 class NoteListView(ListView):
 
     def get_queryset(self):
