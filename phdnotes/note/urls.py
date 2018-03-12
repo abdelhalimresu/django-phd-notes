@@ -1,4 +1,3 @@
-from django.core.urlresolvers import reverse
 from django.conf.urls import url
 from note.views import NoteCreateView
 from note.views import NoteDetailView
