@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from note.views import HomeView
+from django.views.generic.base import RedirectView
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', RedirectView.as_view(url='/notes/')),
     url(r'^notes/', include('note.urls', namespace='notes')),
-    url(r'$', HomeView.as_view(), name='home'),
 ]
