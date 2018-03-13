@@ -28,6 +28,7 @@ class NoteForm(BaseModelForm):
         fields = [
             'content',
             'tags',
+            'reference',
         ]
         help_texts = {
             'tags': 'Separate tags with ","',
