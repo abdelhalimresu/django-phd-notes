@@ -22,7 +22,7 @@
         <td><div class="content_p">{{obj.name}}</div>
             <div class="tag_p"><a href='{{obj.source}}'>source</a></div></td>
 
-        <td><div class="content_p">{{obj.abstract}}</div>
+        <td><div class="content_p">{{obj.abstract|linebreaks}}</div>
             <div class="tag_p">{% for tag in obj.authors %}<a href='{% url "references:list" %}?authors={{tag}}'>{{tag}}</a> {% endfor %}</div>
         </td>
         <td>{{obj.created_at}}</td>
