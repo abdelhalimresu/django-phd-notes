@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head_title %}{{ title }} | {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+{% if reference.id %}
+<h1>Edit reference</h1>
+{% else %}
+<h1>Create a reference</h1>
+{% endif %}
+<br><br>
+{% include 'snippets/form-snippet.html' %}
+
+{% endblock %}

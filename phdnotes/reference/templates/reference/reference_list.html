@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block head_title %}Menu references | {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+
+<center>
+    <h1>
+        References <a href='{% url "references:create" %}' class="btn btn-default">Add a reference</a>
+    </h1>
+</center>
+
+<table>
+    <tr>
+        <th width="10%" style="text-align:center">Title</th>
+        <th width="77%" style="text-align:center">Abstract</th>
+        <th width="10%" style="text-align:center">Created at</th>
+        <th width="2%" style="text-align:center">Edit</th>
+    </tr>
+{% for obj in object_list %}
+    <tr>
+        <td><a href='{{obj.source}}'>{{obj.name}}</a></td>
+        <td><div class="content_p">{{obj.abstract}}</div>
+            <div class="tag_p">{% for tag in obj.authors %}<a href='{% url "references:list" %}?authors={{tag}}'>#{{tag}}</a> {% endfor %}</div>
+        </td>
+        <td>{{obj.created_at}}</td>
+        <td style="text-align:center"><a href='{% url "references:edit" pk=obj.id %}' class="btn btn-default">+</a></td>
+    </tr>
+{% endfor %}
+</table>
+
+{% endblock %}

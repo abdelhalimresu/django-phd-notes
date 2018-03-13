@@ -22,4 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', RedirectView.as_view(url='/notes/')),
     url(r'^notes/', include('note.urls', namespace='notes')),
+    url(r'^references/', include('reference.urls', namespace='references')),
 ]
