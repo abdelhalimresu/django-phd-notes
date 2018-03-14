@@ -13,7 +13,7 @@ class MyTextarea(forms.Textarea):
     template_name = 'note/my_text_area.html'
 
     def __init__(self, attrs=None):
-        default_attrs = {'cols': '60', 'rows': '15'}
+        default_attrs = {'cols': '70', 'rows': '15'}
         if attrs:
             default_attrs.update(attrs)
 
@@ -21,7 +21,7 @@ class MyTextarea(forms.Textarea):
 
 
 class NoteForm(BaseModelForm):
-    content = forms.CharField(widget=MyTextarea())
+    content = forms.CharField(strip=False, widget=MyTextarea())
 
     class Meta:
         model = Note

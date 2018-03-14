@@ -21,7 +21,7 @@ class MyTextarea(forms.Textarea):
 
 
 class ReferenceForm(BaseModelForm):
-    abstract = forms.CharField(widget=MyTextarea())
+    abstract = forms.CharField(strip=False, widget=MyTextarea())
 
     class Meta:
         model = Reference
