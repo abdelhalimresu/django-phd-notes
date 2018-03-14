@@ -14,7 +14,7 @@
     <tr>
         <th width="18%" style="text-align:center">Title</th>
         <th width="70%" style="text-align:center">Abstract</th>
-        <th width="10%" style="text-align:center">Created at</th>
+        <th width="8%" style="text-align:center">Created at</th>
         <th width="2%" style="text-align:center">Edit</th>
     </tr>
 {% for obj in object_list %}
@@ -25,7 +25,7 @@
         <td><div class="content_p">{{obj.abstract|linebreaks}}</div>
             <div class="tag_p">{% for tag in obj.authors %}<a href='{% url "references:list" %}?authors={{tag}}'>{{tag}}</a> {% endfor %}</div>
         </td>
-        <td>{{obj.created_at}}</td>
+        <td>{{obj.created_at|date:"d/m/Y"}}</td>
         <td style="text-align:center"><a href='{% url "references:edit" pk=obj.id %}' class="btn btn-default">+</a></td>
     </tr>
 {% endfor %}

@@ -13,8 +13,8 @@
 <table>
     <tr>
         <th width="25%" style="text-align:center">Reference</th>
-        <th width="60%" style="text-align:center">Content</th>
-        <th width="15%" style="text-align:center">Created at</th>
+        <th width="65%" style="text-align:center">Content</th>
+        <th width="8%" style="text-align:center">Created at</th>
         <th width="5%" style="text-align:center">Edit</th>
     </tr>
 {% for obj in object_list %}
@@ -25,7 +25,7 @@
         <td><div class="content_p"><pre width="20">{{obj.content|linebreaks}}</pre></div>
             <div class="tag_p">{% for tag in obj.tags %}<a href='{% url "notes:list" %}?tags={{tag}}'>#{{tag}}</a> {% endfor %}</div>
         </td>
-        <td>{{obj.created_at}}</td>
+        <td>{{obj.created_at|date:"d/m/Y"}}</td>
         <td style="text-align:center"><a href='{% url "notes:edit" pk=obj.id %}' class="btn btn-default">+</a></td>
     </tr>
 {% endfor %}
