@@ -1,27 +1,11 @@
-from django import forms
-
+from ckeditor.fields import RichTextFormField
+from django.forms import ModelForm
 from .models import Note
 
 
-class BaseModelForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        kwargs.setdefault('label_suffix', '')
-        super(BaseModelForm, self).__init__(*args, **kwargs)
+class NoteForm(ModelForm):
 
-
-class MyTextarea(forms.Textarea):
-    template_name = 'note/my_text_area.html'
-
-    def __init__(self, attrs=None):
-        default_attrs = {'cols': '70', 'rows': '15'}
-        if attrs:
-            default_attrs.update(attrs)
-
-        super().__init__(default_attrs)
-
-
-class NoteForm(BaseModelForm):
-    content = forms.CharField(strip=False, widget=MyTextarea())
+    content = RichTextFormField()
 
     class Meta:
         model = Note
