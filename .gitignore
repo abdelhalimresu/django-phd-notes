@@ -1,4 +1,5 @@
 *.py[co]
 __pycache__
-.vscode/*
+.vscode
 Pip*
+static
