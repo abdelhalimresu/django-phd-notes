@@ -2,3 +2,4 @@ Django==1.11.2
 django-ckeditor==5.4.0
 gunicorn==19.7.1
 psycopg2==2.7.1
+django-configurations==2.0
