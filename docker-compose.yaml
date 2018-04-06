@@ -4,7 +4,7 @@ services:
 
   django:
     build: .
-    command: python phdnotes/manage.py runserver 0.0.0.0:8000
+    command: gunicorn -c phdnotes/gunicorn.py --pythonpath phdnotes phdnotes.wsgi
     volumes:
       - .:/code
     ports:
