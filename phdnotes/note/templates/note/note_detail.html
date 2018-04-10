@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block head_title %}Note detail | {{ block.super}}{% endblock head_title %}
+
+{% block content %}
+
+<center>
+    <h1>
+        Note detail
+    </h1>
+    <br>
+</center>
+
+<table>
+  <tr>
+    <th width="25%" style="text-align:center">Reference</th>
+    <th width="65%" style="text-align:center">Content</th>
+    <th width="8%" style="text-align:center">Created at</th>
+    <th width="5%" style="text-align:center">Edit</th>
+  </tr>
+  <tr>
+    <td>
+      <div class="content_p">{{object.reference.name}}</div>
+      <div class="tag_p">
+        <a href='{% url "references:edit" pk=object.reference.id %}'>View & Edit</a>
+      </div>
+    </td>
+    <td>
+      <div class="content_p">
+        <table style="background-color:#FAFAFA">
+          <td>{{object.content|safe}}</td>
+        </table>
+      </div>
+      <div style="line-height:100%;">
+        <br>
+      </div>
+      <div class="tag_p">{% for tag in object.tags %}
+        <a href='{% url "notes:list" %}?tags={{tag}}'>#{{tag}}</a> {% endfor %}
+      </div>
+      <div style="line-height:100%;">
+        <br>
+      </div>
+      <!-- <div id="comments"></div> -->
+    </td>
+    <td>{{object.created_at|date:"d/m/Y"}}</td>
+    <td style="text-align:center">
+      <a href='{% url "notes:edit" pk=object.id %}' class="btn btn-default">+</a>
+    </td>
+  </tr>
+</table>
+
+<!-- <script>
+    var i;
+    var comments = "";
+    for (i = 0; i < 4; i++) {
+      comments += "<div onclick=\"location.href='http://google.com';\" class=\"content_p\"><table style=\"cursor: pointer;\"><td><a href=\"https://csrc.nist.gov/\">Cannady</a> hhhhhhhhh nice post :D</td></table></div>"
+      comments += "<div style=\"line-height:50%;\"><br></div>"
+    }
+    document.getElementById("comments").innerHTML = comments;
+</script> -->
+
+{% endblock %}
+
