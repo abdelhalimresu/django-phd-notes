@@ -16,6 +16,7 @@ export POSTGRES_USER=user;
 export POSTGRES_PASS=pass;
 export POSTGRES_HOST=localhost;
 export POSTGRES_DB=phdnotes;
+export DJANGO_CONFIGURATION=Local
 
 # Run python manage commands
 python phdnotes/manage.py runserver
