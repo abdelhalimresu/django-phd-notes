@@ -4,6 +4,7 @@ from django.contrib.postgres.fields import ArrayField
 
 from reference.models import Reference
 
+
 class Note(models.Model):
 
     content = models.TextField()
@@ -21,3 +22,15 @@ class Note(models.Model):
 
     def get_absolute_url(self):
         return reverse('notes:detail', kwargs={'pk': self.pk})
+
+
+class Comment(models.Model):
+
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    note = models.ForeignKey(Note, related_name='comments')
+
+    class Meta:
+        ordering = ['created_at', 'updated_at']
