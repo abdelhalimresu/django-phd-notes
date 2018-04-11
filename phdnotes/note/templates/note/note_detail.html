@@ -27,20 +27,38 @@
     </td>
     <td>
       <div class="content_p">
-        <table style="background-color:#FAFAFA">
-          <td>{{object.content|safe}}</td>
+        <table class="content">
+          <td>{{object.content|safe}}
+            <div>{% for tag in object.tags %}
+              <span class="tag label label-primary"><a style="color:white;" href='{% url "notes:list" %}?tags={{tag}}'>{{tag}}</a></span>{% endfor %}
+            </div>
+          </td>
         </table>
       </div>
-      <div style="line-height:100%;">
+      <br>  
+      <strong>Comments</strong>
+      {% for comment in object.comments.all %}
+      <div class="content_p">
+          <div style="line-height:50%;">
+              <br>
+            </div>
+          <table class="comment"><td><p>{{comment.text}}</p></td></table>
+      </div>{% endfor %}
+      <div style="line-height:400%;">
+          <br>
+        </div>
+      <form method="post" action="./">
+        {% csrf_token %}
+        <input type='hidden' name="note" required id="id_note" value='{{ object.id }}'/>
+        <div align="center">
+          <textarea name="text" placeholder="Leave a comment..." rows="4" cols="60" required id="id_text"></textarea>
+        <br><br>
+          <button class="btn btn-default" type='submit'>Save</button>
+        </div>
+      </form>
+      <div style="line-height:200%;">
         <br>
       </div>
-      <div class="tag_p">{% for tag in object.tags %}
-        <a href='{% url "notes:list" %}?tags={{tag}}'>#{{tag}}</a> {% endfor %}
-      </div>
-      <div style="line-height:100%;">
-        <br>
-      </div>
-      <!-- <div id="comments"></div> -->
     </td>
     <td>{{object.created_at|date:"d/m/Y"}}</td>
     <td style="text-align:center">
