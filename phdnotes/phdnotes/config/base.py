@@ -102,6 +102,9 @@ class Base(Configuration):
         },
     ]
 
+    LOGOUT_REDIRECT_URL = "notes:list"
+    LOGIN_REDIRECT_URL = "notes:list"
+
     # Internationalization
     # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
