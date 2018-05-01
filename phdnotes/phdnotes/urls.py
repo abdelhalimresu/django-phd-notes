@@ -16,11 +16,14 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic.base import RedirectView
+from django.contrib.auth.views import login, logout
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', RedirectView.as_view(url='/notes/')),
+    url(r'^login/$', login, {'template_name': 'login.html'}, name='login'),
+    url(r'^logout/$', logout, name='logout'),
     url(r'^notes/', include('note.urls', namespace='notes')),
     url(r'^references/', include('reference.urls', namespace='references')),
 ]
