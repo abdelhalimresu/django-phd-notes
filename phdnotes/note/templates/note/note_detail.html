@@ -4,13 +4,6 @@
 
 {% block content %}
 
-<center>
-    <h1>
-        Note detail
-    </h1>
-    <br>
-</center>
-
 <table>
   <tr>
     <th width="25%" style="text-align:center">Reference</th>
@@ -21,9 +14,7 @@
   <tr>
     <td>
       <div class="content_p">{{object.reference.name}}</div>
-      <div class="tag_p">
-        <a href='{% url "references:edit" pk=object.reference.id %}'>View & Edit</a>
-      </div>
+      <div class="tag_p"><a href='{% url "references:detail" pk=object.reference.id %}'>View reference</a></div>
     </td>
     <td>
       <div class="content_p">

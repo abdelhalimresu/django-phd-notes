@@ -18,6 +18,7 @@ class ReferenceListView(ListView):
 
 class ReferenceDetailView(DetailView):
     model = Reference
+    template_name = 'reference/reference_detail.html'
 
 
 class ReferenceCreateView(CreateView):

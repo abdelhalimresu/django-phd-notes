@@ -1,21 +1,19 @@
 <div class='container'>
 <div class='row text-center'>
-<div clsas='col-sm-6 col-sm-offset-3'>
-<h1>MuyPicky.com</h1>
-<a href='{% url "home" %}'>Home</a>
-<!-- <a href='{% url "about" %}'>About</a>
-<a href='{% url "contact" %}'>Contact</a> -->
-<a href='{% url "profiles:random" %}'>Random User</a>
+<div class='col-sm-6 col-sm-offset-3'>
+<h2>PhDNotes</h2>
 {% if request.user.is_authenticated %}
-<a href='{% url "restaurants:list" %}'>Restaurants</a>
-<a href='{% url "menus:list" %}'>Menu Items</a>
+<a href='{% url "notes:list" %}'>Notes</a> |
+<a href='{% url "notes:create" %}'>Add a note</a> |
+<a href='{% url "references:list" %}'>References</a> |
+<a href='{% url "references:create" %}'>Add a reference</a> |
 <a href='{% url "logout" %}'>Logout</a>
 {% else %}
-<a href='{% url "register" %}'>Register</a>
 <a href='{% url "login" %}'>Login</a>
-
 {% endif %}
 </div>
 </div>
+</div>
+<br>
+<br>
 
-</div><hr/>

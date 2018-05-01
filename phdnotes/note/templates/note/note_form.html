@@ -4,11 +4,12 @@
 
 {% block content %}
 {% if note.id %}
-<h1>Edit note</h1>
+<h3>Edit note</h3>
 {% else %}
-<h1>Create a note</h1>
+<h3>Create a note</h3>
 {% endif %}
-<br><br>
+
+<br>
 
 {% if form.errors.non_field_errors %}
 {{ form.errors.non_field_errors }}

@@ -4,15 +4,6 @@
 
 {% block content %}
 
-<center>
-    <h1>
-        Notes <a href='{% url "notes:create" %}' class="btn btn-default">Add a note</a>
-    </h1>
-    <a href="{% url "references:list" %}">References</a>
-    <br>
-    <br>
-</center>
-
 <table>
     <tr>
         <th width="25%" style="text-align:center">Reference</th>
@@ -23,11 +14,11 @@
 {% for obj in object_list %}
     <tr>
         <td><div class="content_p">{{obj.reference.name}}</div>
-            <div class="tag_p"><a href='{% url "references:edit" pk=obj.reference.id %}'>View & Edit</a></div>
+            <div class="tag_p"><a href='{% url "references:detail" pk=obj.reference.id %}'>View reference</a></div>
         </td>
         <td>
-            <div class="content_p">
-                <table class="content">
+            <div onclick="location.href='{% url 'notes:detail' pk=obj.id %}';" class="content_p">
+                <table class="content" style="cursor: pointer;">
                     <td>{{obj.content|safe}}
                         <div>{% for tag in obj.tags %}
                             <span class="tag label label-primary"><a style="color:white;" href='{% url "notes:list" %}?tags={{tag}}'>{{tag}}</a></span>{% endfor %}
