@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>Login | phdnotes.com</title>
+    {% include 'snippets/css.html' %}
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <div class='container'>
+        <center>
+            <form class="login" method="POST" action="/login/">
+              {% csrf_token %}
+              {{form.as_p}}
+              <button class="btn btn-default" type='submit'>Login</button>
+              </form>
+        </center>
+    </div>
+  {% include 'snippets/js.html' %}
+</body>
+</html>
